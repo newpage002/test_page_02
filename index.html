@@ -483,7 +483,7 @@
 
   <section class="promotion-section" id="join">
     <span class="tab">Community promotion</span>
-    <div class="card"><div class="signupBox"><h4>Registration</h4><p><strong>Community Leaders:</strong> contact your BD and submit all valid invite codes together.</p><div class="signupNeed"><strong>Invite code rule:</strong> codes belonging to the same leader are combined into one ranking position. They must not have a direct or indirect upline/downline relationship.</div></div><div class="promoLead"><strong>After registration, post the unified event announcement in your community so users actually receive it.</strong></div><ul class="promoReq"><li>Use the official copy, rule graphic and event link.</li><li>Send your BD a screenshot of the post and its message link.</li><li>Forward important progress and rank-change updates during the event.</li></ul></div>
+    <div class="card"><div class="signupBox"><h4>Registration</h4><p><strong>Community Leaders:</strong> contact your BD or <a href="https://t.me/alphadontlie" target="_blank" rel="noopener noreferrer">Alex on Telegram</a> and submit all valid invite codes together.</p><div class="signupNeed"><strong>Invite code rule:</strong> codes belonging to the same leader are combined into one ranking position. They must not have a direct or indirect upline/downline relationship.</div></div><div class="promoLead"><strong>After registration, post the unified event announcement in your community so users actually receive it.</strong></div><ul class="promoReq"><li>Use the official copy, rule graphic and event link.</li><li>Send your BD a screenshot of the post and its message link.</li><li>Forward important progress and rank-change updates during the event.</li></ul></div>
   </section>
 
   <section class="notes-section">
@@ -494,7 +494,7 @@
 </div>
 
 <button class="share" id="shareBtn" type="button" aria-label="Share this preview">↗</button><span class="shareToast" id="shareToast" role="status" aria-live="polite"></span>
-<div class="cta"><button type="button" id="joinBtn">How to join · Contact your BD</button></div>
+<div class="cta"><button type="button" id="joinBtn">Contact BD · Telegram</button></div>
 <script>
   const START=Date.parse("2026-10-23T18:00:00+08:00"),END=Date.parse("2026-10-31T18:00:00+08:00");
   const prize={community:[135,105,85,70,55,45,35,30,20,20],user:[45,35,25,20,15,15,15,10,10,10]};
@@ -516,7 +516,7 @@
   }
   function render(which){document.querySelectorAll(".swt button").forEach(b=>{const on=b.dataset.board===which;b.classList.toggle("on",on);b.setAttribute("aria-pressed",String(on))});const title=document.getElementById("boardTitle"),sub=document.getElementById("boardSub"),board=document.getElementById("board");if(which==="draw"){title.firstChild.textContent="Lucky Draw";sub.textContent="new user entries";board.innerHTML='<div class="vacantLine"><b>No qualified entries yet</b><small>Eligible new users appear here after the live data feed is connected.</small></div>';return}title.firstChild.textContent=which==="community"?"Community Growth":"New User Trading";sub.textContent=which==="community"?"direct new users":"personal trading volume";board.innerHTML='<div class="podium">'+[1,2,3].map(position=>podiumSlot(null,position,which)).join('')+'</div><div class="rows">'+prize[which].slice(3).map((value,i)=>'<div class="lrow"><span class="rk">'+(i+4)+'</span><div class="who"><div class="nm">Position available</div><div class="mt">Awaiting verified trading volume</div></div><div class="vc"><div class="vol">—<small>USDT</small></div><span class="prz">Prize '+value+' U</span></div></div>').join("")+"</div>"}
   document.querySelectorAll(".swt button").forEach(b=>b.addEventListener("click",()=>render(b.dataset.board)));
-  document.getElementById("joinBtn").addEventListener("click",()=>document.getElementById("join").scrollIntoView({behavior:"smooth"}));
+  document.getElementById("joinBtn").addEventListener("click",()=>window.open("https://t.me/alphadontlie","_blank","noopener,noreferrer"));
   document.getElementById("shareBtn").addEventListener("click",async()=>{const toast=document.getElementById("shareToast");try{if(navigator.share)await navigator.share({title:document.title,url:location.href});else{await navigator.clipboard.writeText(location.href);toast.textContent="Preview link copied";toast.classList.add("show");setTimeout(()=>toast.classList.remove("show"),1800)}}catch(e){if(e.name!=="AbortError"){toast.textContent="Copy the URL from your browser";toast.classList.add("show");setTimeout(()=>toast.classList.remove("show"),1800)}}});
 </script>
 <script>
